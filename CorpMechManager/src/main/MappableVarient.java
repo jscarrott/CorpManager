@@ -1,18 +1,10 @@
 package main;
 
-import javax.xml.bind.annotation.XmlTransient;
-
-public class Varient {
+public class MappableVarient {
 	
 	private String name;
 	private String smurfyURL;
 	private String parentMech;
-	
-	public Varient(String name2, String mech) {
-		setName(name2);
-		setMech(mech);
-		setSmurfyURL("empty");
-	}
 	public String getName() {
 		return name;
 	}
@@ -25,12 +17,17 @@ public class Varient {
 	public void setSmurfyURL(String smurfyURL) {
 		this.smurfyURL = smurfyURL;
 	}
-	public String getMech() {
+	/**
+	 * @return the parentMech
+	 */
+	public String getParentMech() {
 		return parentMech;
 	}
-	@XmlTransient
-	public void setMech(String mech) {
-		this.parentMech = mech;
+	/**
+	 * @param parentMech the parentMech to set
+	 */
+	public void setParentMech(String parentMech) {
+		this.parentMech = parentMech;
 	}
 
 }

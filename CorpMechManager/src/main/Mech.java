@@ -2,6 +2,7 @@ package main;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Mech {
 
@@ -9,6 +10,7 @@ public class Mech {
 	private Map<String, Varient> varients;
 	
 	public Mech(String name2) {
+		varients = new TreeMap<String,Varient>();
 		setName(name2);
 	}
 	public String getName() {
@@ -25,7 +27,7 @@ public class Mech {
 	}
 	
 	public void addVarient(String name){
-		varients.put(name, new Varient(name, this));
+		varients.put(name, new Varient(name, this.getName()));
 	}
 	public boolean removeVarient(String name){
 		if(varients.remove(name) != null){

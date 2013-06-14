@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="gui.MainPageController">
   <!-- TODO Add Nodes -->
   <children>
     <TabPane prefHeight="387.0" prefWidth="556.0" tabClosingPolicy="UNAVAILABLE">
@@ -194,4 +194,4 @@
       </tabs>
     </TabPane>
   </children>
-</VBox>
+</AnchorPane>

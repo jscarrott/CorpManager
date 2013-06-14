@@ -2,17 +2,10 @@ package main;
 
 import java.util.ArrayList;
 
-public class Member {
-	
+public class MappableMember {
+
 	private String name;
 	private ArrayList<String> mechList;
-	
-	
-	
-	public Member(String name2) {
-		setName(name2);
-		mechList = new ArrayList<String>();
-	}
 	public String getName() {
 		return name;
 	}
@@ -25,9 +18,5 @@ public class Member {
 	public void setMechList(ArrayList<String> mechList) {
 		this.mechList = mechList;
 	}
-	public void addMech(Mech newMech) {
-		this.mechList.add(newMech.getName());
-		
-	}
-
+	
 }

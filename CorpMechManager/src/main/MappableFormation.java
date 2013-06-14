@@ -2,15 +2,10 @@ package main;
 
 import java.util.ArrayList;
 
-public class Formation {
+public class MappableFormation {
+	
 	private String name;
 	private ArrayList<String> composition;
-	
-	
-	public Formation(String name2, ArrayList<String> varientList) {
-		setName(name2);
-		setComposition(varientList);
-	}
 	public String getName() {
 		return name;
 	}
@@ -23,7 +18,5 @@ public class Formation {
 	public void setComposition(ArrayList<String> composition) {
 		this.composition = composition;
 	}
-	
-	
 
 }

@@ -4,22 +4,27 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import main.CoordinatingClass;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class GUImain extends Application {
 	
 	private Stage stage;
+	public CoordinatingClass coordClass;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		coordClass = new CoordinatingClass();
 		stage = primaryStage;
-       stage.setTitle("EncryptSync");
+       stage.setTitle("Corp Manager");
        stage.setMinWidth(300);
        stage.setMinHeight(500);
        gotoMainPage();
@@ -29,6 +34,7 @@ public class GUImain extends Application {
 	private void gotoMainPage() {
 		try {
             MainPageController mainPage = (MainPageController) replaceSceneContent("MainPage.fxml");
+            mainPage.setApp(coordClass);
             //mainPage.initialize(null, null);
         } catch (Exception ex) {
             Logger.getLogger(GUImain.class.getName()).log(Level.SEVERE, null, ex);
