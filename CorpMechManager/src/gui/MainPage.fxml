@@ -6,19 +6,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="gui.MainPageController">
+<AnchorPane maxHeight="1000.0" maxWidth="1000.0" minHeight="387.0" minWidth="556.0" prefHeight="387.0" prefWidth="556.0" xmlns:fx="http://javafx.com/fxml" fx:controller="gui.MainPageController">
   <!-- TODO Add Nodes -->
   <children>
-    <TabPane prefHeight="387.0" prefWidth="556.0" tabClosingPolicy="UNAVAILABLE">
+    <TabPane maxHeight="1000.0" maxWidth="1000.0" minHeight="387.0" minWidth="556.0" prefHeight="387.0" prefWidth="556.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <tabs>
         <Tab text="Members">
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
-                <GridPane layoutX="14.0" layoutY="14.0" prefHeight="328.0" prefWidth="528.0">
+                <GridPane prefHeight="356.0" prefWidth="556.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                    <ListView prefHeight="232.0" prefWidth="264.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <ListView id="allMemberList" fx:id="allMembersList" prefHeight="232.0" prefWidth="264.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <ListView fx:id="currentMembersList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     <Label text="All Members" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
                     <Label text="Current Turnout" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
                       <GridPane.margin>
@@ -27,8 +27,8 @@
                     </Label>
                     <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
                       <children>
-                        <Button mnemonicParsing="false" text="Move to current" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" text="Remove" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#addMemberToCurrentButton" text="Move to current" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#removeMemberFromCurrentButton" text="Remove" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                       </children>
                       <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -74,10 +74,10 @@
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
-                <GridPane layoutX="14.0" layoutY="14.0" prefHeight="328.0" prefWidth="528.0">
+                <GridPane prefHeight="356.0" prefWidth="556.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                    <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <ListView id="foramtionList" fx:id="formationList" onMouseClicked="#formationClickedOn" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <ListView fx:id="currentFormationComposition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     <Label text="Formations" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
                     <Label text="Composition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
                     <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
@@ -114,7 +114,7 @@
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
-                <GridPane layoutX="15.0" layoutY="15.0" prefHeight="327.0" prefWidth="527.0">
+                <GridPane prefHeight="356.0" prefWidth="556.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
                     <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                     <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -139,12 +139,12 @@
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
-                <GridPane layoutX="15.0" layoutY="15.0" prefHeight="327.0" prefWidth="527.0">
+                <GridPane prefHeight="356.0" prefWidth="556.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
                     <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                     <Label text="Mechs" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
                     <Label text="Varients" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                    <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
                       <columns>
                         <TableColumn prefWidth="75.0" text="Name" />
                         <TableColumn prefWidth="75.0" text="Smurfy Link" />
@@ -185,6 +185,25 @@
                     <RowConstraints maxHeight="108.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
                     <RowConstraints maxHeight="191.0" minHeight="10.0" prefHeight="191.0" vgrow="SOMETIMES" />
                     <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Detailed Member">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <GridPane alignment="CENTER" prefHeight="356.0" prefWidth="556.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="203.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="118.0" vgrow="SOMETIMES" />
                   </rowConstraints>
                 </GridPane>
               </children>

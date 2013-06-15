@@ -25,5 +25,8 @@ public class Formation {
 	}
 	
 	
-
+@Override
+public String toString(){
+	return name;
+}
 }

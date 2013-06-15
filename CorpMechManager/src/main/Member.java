@@ -29,5 +29,9 @@ public class Member {
 		this.mechList.add(newMech.getName());
 		
 	}
+	@Override
+	public String toString(){
+		 return name;
+	}
 
 }

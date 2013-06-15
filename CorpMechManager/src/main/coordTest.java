@@ -3,6 +3,7 @@ package main;
 import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import javax.xml.bind.JAXBException;
 
@@ -28,10 +29,13 @@ public class coordTest {
 		test.addNewMember("eee");
 		test.addNewVarient("bob", "abbey");
 		test.addMechToMember("sue", test.getMechs().get("bob"));
+		ArrayList<String> testformcomp = new ArrayList<>();
+		testformcomp.add("bob");
+		test.addFormation("test formation", testformcomp);
 		test.saveToXmlFile();
 		test.readFromXmlFile();
 		Member testy = test.getMembers().get("sue");
-		System.out.println(test.getMembers().get("Sue").getMechList());
+		System.out.println(test.getMembers().get("sue").getMechList());
 		test.getMembers();
 	}
 
