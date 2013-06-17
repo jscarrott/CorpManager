@@ -8,9 +8,23 @@
             </value>
         </entry>
         <entry>
-            <key>bbb</key>
+            <key>asdfgh</key>
             <value>
-                <name>bbb</name>
+                <mechList>bob</mechList>
+                <name>asdfgh</name>
+            </value>
+        </entry>
+        <entry>
+            <key>assasaadsa</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>assasaadsa</name>
+            </value>
+        </entry>
+        <entry>
+            <key>bb444b</key>
+            <value>
+                <name>bb444b</name>
             </value>
         </entry>
         <entry>
@@ -26,9 +40,128 @@
             </value>
         </entry>
         <entry>
+            <key>dfdfsfdsfdf</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>dfdfsfdsfdf</name>
+            </value>
+        </entry>
+        <entry>
+            <key>drfsfxcxzzxcxz</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>drfsfxcxzzxcxz</name>
+            </value>
+        </entry>
+        <entry>
+            <key>dvsvsvsdvs</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>dvsvsvsdvs</name>
+            </value>
+        </entry>
+        <entry>
             <key>eee</key>
             <value>
                 <name>eee</name>
+            </value>
+        </entry>
+        <entry>
+            <key>fdfdgdgdgfdfg</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>fdfdgdgdgfdfg</name>
+            </value>
+        </entry>
+        <entry>
+            <key>fgdfdb</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>fgdfdb</name>
+            </value>
+        </entry>
+        <entry>
+            <key>fred</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>fred</name>
+            </value>
+        </entry>
+        <entry>
+            <key>gfbbdfbfd</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>gfbbdfbfd</name>
+            </value>
+        </entry>
+        <entry>
+            <key>guy</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>guy</name>
+            </value>
+        </entry>
+        <entry>
+            <key>llllllllllllllllllllllllllllll</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>llllllllllllllllllllllllllllll</name>
+            </value>
+        </entry>
+        <entry>
+            <key>mnmnmnmmnnm</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>mnmnmnmmnnm</name>
+            </value>
+        </entry>
+        <entry>
+            <key>popopop</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>popopop</name>
+            </value>
+        </entry>
+        <entry>
+            <key>ppppppppppppppppp</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>ppppppppppppppppp</name>
+            </value>
+        </entry>
+        <entry>
+            <key>qwertyu</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>qwertyu</name>
+            </value>
+        </entry>
+        <entry>
+            <key>reallyreal</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>reallyreal</name>
+            </value>
+        </entry>
+        <entry>
+            <key>reallyrealllllllllll</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>reallyrealllllllllll</name>
+            </value>
+        </entry>
+        <entry>
+            <key>sadsaadssad</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>sadsaadssad</name>
+            </value>
+        </entry>
+        <entry>
+            <key>setall</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>setall</name>
             </value>
         </entry>
         <entry>
@@ -38,15 +171,50 @@
                 <name>sue</name>
             </value>
         </entry>
+        <entry>
+            <key>testreal</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>testreal</name>
+            </value>
+        </entry>
+        <entry>
+            <key>testy</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>testy</name>
+            </value>
+        </entry>
+        <entry>
+            <key>tgdrgrdgdg</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>tgdrgrdgdg</name>
+            </value>
+        </entry>
+        <entry>
+            <key>zzzzzzzzzzz</key>
+            <value>
+                <mechList>bob</mechList>
+                <name>zzzzzzzzzzz</name>
+            </value>
+        </entry>
     </members>
     <mechs>
+        <entry>
+            <key>JR7-F</key>
+            <value>
+                <name>JR7-F</name>
+                <varients/>
+            </value>
+        </entry>
         <entry>
             <key>bob</key>
             <value>
                 <name>bob</name>
                 <varients>
                     <entry>
-                        <key>abbey</key>
+                        <key>empty</key>
                         <value>
                             <name>empty</name>
                         </value>

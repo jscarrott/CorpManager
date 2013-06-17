@@ -5,8 +5,11 @@ import gui.GUImain;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.TreeMap;
 
 import javafx.application.Application;
@@ -26,12 +29,40 @@ public class CoordinatingClass {
 	private Map<String, Member> members;
 	private Map<String, Mech> mechs;
 	private Map<String, Formation> formations;
+	private long lastTimeBuff;
 
-	public CoordinatingClass() throws FileNotFoundException, JAXBException {
+	public CoordinatingClass() throws JAXBException, IOException, InterruptedException {
 		members = new TreeMap<String, Member>();
 		mechs = new TreeMap<String, Mech>();
 		formations = new TreeMap<String, Formation>();
 		readFromXmlFile();
+		File buffPathFile = new File("data.xml");
+		lastTimeBuff = buffPathFile.lastModified();
+		pollFile();
+	}
+	
+	void pollFile(){
+		Timer timer = new Timer();
+
+		timer.schedule( new TimerTask() {
+		    
+		    File buffPathFile = new File("data.xml");
+			public void run() {	
+		    	if(lastTimeBuff != buffPathFile.lastModified()){
+		    		try {
+						readFromXmlFile();
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (JAXBException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					System.out.println("poll file");
+					lastTimeBuff = buffPathFile.lastModified();
+		    	}
+		    }
+		 }, 0, 5*1000);
 	}
 
 	public Map<String, Member> getMembers() {
@@ -52,7 +83,7 @@ public class CoordinatingClass {
 		this.mechs = mechs;
 	}
 
-	boolean addNewMember(String name) {
+	public boolean addNewMember(String name) {
 		try {
 			members.put(name, new Member(name));
 			return true;
@@ -62,7 +93,7 @@ public class CoordinatingClass {
 		}
 	}
 
-	boolean removeMember(String name) {
+	public boolean removeMember(String name) {
 		try {
 			members.remove(name);
 
@@ -73,7 +104,7 @@ public class CoordinatingClass {
 		}
 	}
 
-	boolean addNewMech(String name) {
+	public boolean addNewMech(String name) {
 		try {
 			mechs.put(name, new Mech(name));
 			return true;
@@ -83,7 +114,7 @@ public class CoordinatingClass {
 		}
 	}
 
-	boolean removeMech(String name) {
+	public boolean removeMech(String name) {
 		try {
 			mechs.remove(name);
 			return true;
@@ -93,7 +124,7 @@ public class CoordinatingClass {
 		}
 	}
 
-	boolean addNewVarient(String name, String varName) {
+	public boolean addNewVarient(String name, String varName) {
 		try {
 
 			mechs.get(name).addVarient(varName);
@@ -106,7 +137,7 @@ public class CoordinatingClass {
 		}
 	}
 
-	boolean removeVarient(String name) {
+	public boolean removeVarient(String name) {
 		try {
 			if (mechs.get(name) != null) {
 				mechs.get(name).removeVarient(name);
@@ -119,11 +150,11 @@ public class CoordinatingClass {
 		}
 	}
 
-	void addFormation(String name, ArrayList<String> varientList) {
+	public void addFormation(String name, ArrayList<String> varientList) {
 		formations.put(name, new Formation(name, varientList));
 	}
 
-	void addMechToMember(String name, Mech mech) {
+	public void addMechToMember(String name, Mech mech) {
 		members.get(name).addMech(mech);
 	}
 
@@ -207,13 +238,13 @@ public class CoordinatingClass {
 
 	}
 
-	private void addNewMember(String name, ArrayList<String> mechList) {
+	public void addNewMember(String name, ArrayList<String> mechList) {
 		members.put(name, new Member(name));
 		members.get(name).setMechList(mechList);
 
 	}
 
-	private void addNewMech(String name, Map<String, MappableVarient> varients) {
+	public void addNewMech(String name, Map<String, MappableVarient> varients) {
 		mechs.put(name, new Mech(name));
 		for (MappableVarient mapVarient : varients.values()) {
 			mechs.get(name).addVarient(mapVarient.getName());

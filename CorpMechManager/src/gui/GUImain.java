@@ -5,21 +5,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import main.CoordinatingClass;
-
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class GUImain extends Application {
 	
 	private Stage stage;
-	public CoordinatingClass coordClass;
-
+	public  CoordinatingClass coordClass;
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		coordClass = new CoordinatingClass();
@@ -29,7 +29,18 @@ public class GUImain extends Application {
        stage.setMinHeight(500);
        gotoMainPage();
        primaryStage.show();
+       
+       stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+           @Override
+           public void handle(WindowEvent t) {
+               Platform.exit();
+               System.exit(0);
+           }
+       });
+       
 	    }
+	
+	
 
 	private void gotoMainPage() {
 		try {
@@ -41,6 +52,9 @@ public class GUImain extends Application {
         }
 		
 	}
+	
+	
+
 	
 	Initializable replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();

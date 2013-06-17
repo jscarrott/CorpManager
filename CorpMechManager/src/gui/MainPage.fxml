@@ -42,7 +42,7 @@
                     </GridPane>
                     <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
                       <children>
-                        <Button mnemonicParsing="false" text="Add new member" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#addNewMemberButtonPressed" text="Add new member" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                         <Button mnemonicParsing="false" text="Remove" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.margin="$x1" GridPane.rowIndex="1" />
                       </children>
                       <columnConstraints>
@@ -141,18 +141,18 @@
               <children>
                 <GridPane prefHeight="356.0" prefWidth="556.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                    <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <ListView fx:id="mechList" onMouseClicked="#mechListClickedOn" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                     <Label text="Mechs" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
                     <Label text="Varients" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                    <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+                    <TableView fx:id="varientList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
                       <columns>
-                        <TableColumn prefWidth="75.0" text="Name" />
-                        <TableColumn prefWidth="75.0" text="Smurfy Link" />
+                        <TableColumn prefWidth="75.0" text="Name" fx:id="nameColumn" />
+                        <TableColumn prefWidth="75.0" text="Smurfy Link" fx:id="smurfyColumn" />
                       </columns>
                     </TableView>
                     <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
                       <children>
-                        <Button mnemonicParsing="false" text="Add" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#handleEditMechsButton" text="Edit Mechs" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                         <Button mnemonicParsing="false" text="Remove" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                       </children>
                       <columnConstraints>

@@ -3,6 +3,7 @@ package main;
 import static org.junit.Assert.*;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.xml.bind.JAXBException;
@@ -18,7 +19,7 @@ public class coordTest {
 	}
 
 	@Test
-	public void test() throws JAXBException, FileNotFoundException {
+	public void test() throws JAXBException, IOException, InterruptedException {
 		CoordinatingClass test = new CoordinatingClass();
 		test.addNewMech("bob");
 		test.addNewMember("sue");
