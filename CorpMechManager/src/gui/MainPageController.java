@@ -140,7 +140,8 @@ public class MainPageController extends AnchorPane implements Initializable {
 	
 	@SuppressWarnings("unchecked")
 	@FXML protected void mechListClickedOn(MouseEvent E){
-		currentVarients = FXCollections.observableArrayList((application.getMechs().get(mechList.getSelectionModel().getSelectedItem()).getVarients().values()));
+//		Varient check = application.getMechs().get("JR7-F").getVarients().get("testy");
+		currentVarients = FXCollections.observableArrayList((application.getMechs().get(mechList.getSelectionModel().getSelectedItem()).getVarients()));
 	 //TODO update table
 		varientList.setItems(currentVarients);
 		

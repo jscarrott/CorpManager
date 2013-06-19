@@ -33,4 +33,9 @@ public class Varient {
 		this.parentMech = mech;
 	}
 
+	@Override
+	public
+	String toString(){
+		return this.name;
+	}
 }

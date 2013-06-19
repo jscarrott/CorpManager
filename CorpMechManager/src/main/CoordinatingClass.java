@@ -6,7 +6,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -137,10 +139,10 @@ public class CoordinatingClass {
 		}
 	}
 
-	public boolean removeVarient(String name) {
+	public boolean removeVarient(String name, String varName) {
 		try {
 			if (mechs.get(name) != null) {
-				mechs.get(name).removeVarient(name);
+				mechs.get(name).removeVarient(varName);
 			}
 			return true;
 
@@ -174,12 +176,22 @@ public class CoordinatingClass {
 		for (Mech mech : mechs.values()) {
 			mapMechs.put(mech.getName(), new MappableMech());
 			mapMechs.get(mech.getName()).setName(mech.getName());
-			TreeMap<String, MappableVarient> mapVar = new TreeMap<>();
-			for (Varient var : mech.getVarients().values()) {
-				mapVar.put(var.getName(), new MappableVarient());
-				mapVar.get(var.getName()).setName(var.getName());
-				mapVar.get(var.getName()).setName(var.getMech());
-				mapVar.get(var.getName()).setName(var.getSmurfyURL());
+			ArrayList<MappableVarient> mapVar = new  ArrayList<>();
+			for (Varient var : mech.getVarients()) {
+				MappableVarient buffMapVar = new MappableVarient();
+				buffMapVar.setName(var.getName());
+				buffMapVar.setParentMech(var.getMech());
+				buffMapVar.setSmurfyURL(var.getSmurfyURL());
+				mapVar.add(buffMapVar );
+//				for(MappableVarient mapperVar : mapVar){
+//					if(var.getName().equals(mapperVar.getName())){
+//						mapperVar.setName(var.getName());
+//						mapperVar.setSmurfyURL(mapperVar.getSmurfyURL());
+//					}
+//				}
+				//mapVar.get(var.getName()).setName(var.getName());
+			//.get(var.getName()).setName(var.getMech());
+			//	mapVar.get(var.getName()).setName(var.getSmurfyURL());
 			}
 			mapMechs.get(mech.getName()).setVarients(mapVar);
 
@@ -244,10 +256,15 @@ public class CoordinatingClass {
 
 	}
 
-	public void addNewMech(String name, Map<String, MappableVarient> varients) {
+	public void addNewMech(String name, ArrayList<MappableVarient> arrayList) {
 		mechs.put(name, new Mech(name));
-		for (MappableVarient mapVarient : varients.values()) {
+		Collection< MappableVarient> collection = arrayList;
+	//	MappableVarient[] collArray = (MappableVarient[]) collection.toArray();
+	//	collArray[0].getName();
+		for (MappableVarient mapVarient : arrayList) {
 			mechs.get(name).addVarient(mapVarient.getName());
+			MappableVarient check = mapVarient;
+			check = mapVarient;
 		}
 
 	}
@@ -265,5 +282,10 @@ public class CoordinatingClass {
 	public static void main(String[] args) {
 		Application.launch(GUImain.class);
 
+	}
+
+	public void addNewVarient(String name, String varName, String smurfyURL) {
+		mechs.get(name).addVarient(varName, smurfyURL);
+		
 	}
 }

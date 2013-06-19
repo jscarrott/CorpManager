@@ -7,10 +7,10 @@ import java.util.TreeMap;
 public class Mech {
 
 	private String name;
-	private Map<String, Varient> varients;
+	private ArrayList<Varient> varients;
 	
 	public Mech(String name2) {
-		varients = new TreeMap<String,Varient>();
+		varients = new ArrayList<Varient>();
 		setName(name2);
 	}
 	public String getName() {
@@ -19,18 +19,18 @@ public class Mech {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Map<String, Varient> getVarients() {
+	public ArrayList<Varient> getVarients() {
 		return varients;
 	}
-	public void setVarients(Map<String, Varient> varients) {
+	public void setVarients(ArrayList<Varient> varients) {
 		this.varients = varients;
 	}
 	
 	public void addVarient(String name){
-		varients.put(name, new Varient(name, this.getName()));
+		varients.add( new Varient(name, this.getName()));
 	}
 	public boolean removeVarient(String name){
-		if(varients.remove(name) != null){
+		if(varients.remove(name)){
 			return true;
 		}
 		else{return false;}
@@ -39,5 +39,15 @@ public class Mech {
 	@Override
 	public String toString(){
 		return name;
+	}
+	public void addVarient(String varName, String smurfyURL) {
+		varients.add( new Varient(varName,  this.getName()));
+		for(Varient varient : varients){
+			if(varient.getName().equals(varName)){
+				varient.setSmurfyURL(smurfyURL);
+			}
+		}
+		
+		
 	}
 }

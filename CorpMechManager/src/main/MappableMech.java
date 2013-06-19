@@ -1,22 +1,22 @@
 package main;
 
-import java.util.Map;
+import java.util.ArrayList;
 
 public class MappableMech {
 	
 	private String name;
-	private Map<String, MappableVarient> varients;
+	private ArrayList<MappableVarient> varients;
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Map<String, MappableVarient> getVarients() {
+	public ArrayList<MappableVarient> getVarients() {
 		return varients;
 	}
-	public void setVarients(Map<String, MappableVarient> varients) {
-		this.varients = varients;
+	public void setVarients(ArrayList<MappableVarient> mapVar) {
+		this.varients = mapVar;
 	}
 
 }
