@@ -19,8 +19,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -34,9 +36,9 @@ public class MainPageController extends AnchorPane implements Initializable {
 	@FXML javafx.scene.control.ListView<Formation> formationList;
 	@FXML javafx.scene.control.ListView<String> currentFormationComposition;
 	@FXML javafx.scene.control.ListView<Mech> mechList;
-	@FXML javafx.scene.control.TableView<Varient> varientList;
-	@FXML TableColumn<Varient, String> nameColumn;
-	@FXML TableColumn<Varient, String> smurfyColumn;
+	@FXML javafx.scene.control.ListView<Varient> varientList;
+	@FXML TextArea smurfyURL;
+
 	private CoordinatingClass application;
 	private ObservableList<Member> allMembers;
 	private ObservableList<Member> currentMembers;
@@ -98,8 +100,8 @@ public class MainPageController extends AnchorPane implements Initializable {
 		}
 	});	
 	
-	currentVarients = FXCollections.observableArrayList();
-	varientList = new TableView<Varient>();
+	currentVarients = FXCollections.observableArrayList(application.getMechs().get("JR7-F").getVarients());
+	varientList.setItems(currentVarients);
 	
 	
 		pollLists();
@@ -139,20 +141,21 @@ public class MainPageController extends AnchorPane implements Initializable {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@FXML protected void mechListClickedOn(MouseEvent E){
+	@FXML protected void mechListClickedOn(MouseEvent E) throws InterruptedException{
 //		Varient check = application.getMechs().get("JR7-F").getVarients().get("testy");
-		currentVarients = FXCollections.observableArrayList((application.getMechs().get(mechList.getSelectionModel().getSelectedItem()).getVarients()));
+		Mech test = mechList.getSelectionModel().getSelectedItem();
+		currentVarients = FXCollections.observableArrayList(test.getVarients());
 	 //TODO update table
 		varientList.setItems(currentVarients);
 		
-		nameColumn = new TableColumn<Varient, String>("name");
-		smurfyColumn = new TableColumn<>("smurfyURL");
-		nameColumn.setCellValueFactory(new PropertyValueFactory<Varient, String>("name"));
-		smurfyColumn.setCellValueFactory(new PropertyValueFactory<Varient, String>("smurfyURL"));
-		varientList.getColumns().addAll(nameColumn, smurfyColumn);
-		varientList.setItems(currentVarients);
+		
 	}
 	
+	@FXML protected void varientClickedOn(MouseEvent E){
+		Varient varBuff = varientList.getSelectionModel().getSelectedItem();
+		smurfyURL.setText(varBuff.getSmurfyURL());
+		
+	}
 	@FXML protected void handleEditMechsButton(ActionEvent E) throws Exception{
 		NewInputStage test = new NewInputStage();
 		test.setCoord(application);
