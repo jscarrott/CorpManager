@@ -262,11 +262,14 @@ public class CoordinatingClass {
 		Collection< MappableVarient> collection = arrayList;
 	//	MappableVarient[] collArray = (MappableVarient[]) collection.toArray();
 	//	collArray[0].getName();
-		for (MappableVarient mapVarient : arrayList) {
+		if(!(arrayList == null)){
+			for (MappableVarient mapVarient : arrayList) {
 			mechs.get(name).addVarient(mapVarient.getName());
 			MappableVarient check = mapVarient;
 			check = mapVarient;
 		}
+		}
+		
 
 	}
 
