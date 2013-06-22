@@ -304,9 +304,16 @@ public class CoordinatingClass {
 	
 	public void getUsableFormations(ArrayList<Member> currentMembers){
 		ArrayList<Formation> allFormations = new ArrayList<>();
+//		ArrayList<Mech> allMechs = getAllMechs(currentMembers);
+		
 		for(Formation form : getFormations().values()){
 			allFormations.add(form);
 		}
+		for(Formation form : allFormations){
+			
+		}
 		
 	}
+	
+	
 }

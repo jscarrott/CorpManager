@@ -60,31 +60,6 @@
                     <parentMech>JR7-F</parentMech>
                     <smurfyURL>empty</smurfyURL>
                 </varients>
-                <varients>
-                    <name>testymctesttest</name>
-                    <parentMech>JR7-F</parentMech>
-                    <smurfyURL>empty</smurfyURL>
-                </varients>
-                <varients>
-                    <name>wertyuiop</name>
-                    <parentMech>JR7-F</parentMech>
-                    <smurfyURL>empty</smurfyURL>
-                </varients>
-                <varients>
-                    <name>wertyuiop</name>
-                    <parentMech>JR7-F</parentMech>
-                    <smurfyURL>empty</smurfyURL>
-                </varients>
-                <varients>
-                    <name>poppy</name>
-                    <parentMech>JR7-F</parentMech>
-                    <smurfyURL>empty</smurfyURL>
-                </varients>
-                <varients>
-                    <name>jazzy</name>
-                    <parentMech>JR7-F</parentMech>
-                    <smurfyURL>empty</smurfyURL>
-                </varients>
             </value>
         </entry>
         <entry>
@@ -96,20 +71,20 @@
                     <parentMech>bob</parentMech>
                     <smurfyURL>empty</smurfyURL>
                 </varients>
-                <varients>
-                    <name>test</name>
-                    <parentMech>bob</parentMech>
-                    <smurfyURL>empty</smurfyURL>
-                </varients>
-                <varients>
-                    <name>test</name>
-                    <parentMech>bob</parentMech>
-                    <smurfyURL>empty</smurfyURL>
-                </varients>
             </value>
         </entry>
     </mechs>
     <formations>
+        <entry>
+            <key>fillerFormation</key>
+            <value>
+                <composition>poppy</composition>
+                <composition>wertyuiop</composition>
+                <composition>abbey</composition>
+                <composition>test</composition>
+                <name>fillerFormation</name>
+            </value>
+        </entry>
         <entry>
             <key>test formation</key>
             <value>

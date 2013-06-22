@@ -48,6 +48,9 @@ public class coordTest {
 		Mech jenner = test.getMechs().get("JR7-F");
 		System.out.println(test.getMembers().get("sue").getMechList());
 		test.getMembers();
+		ArrayList<Member> cMembers = new ArrayList<>();
+		cMembers.add(test.getMembers().get("sue"));
+		Group qwerty = new Group(cMembers, test.getMechs());
 	}
 
 }
