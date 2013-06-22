@@ -29,12 +29,14 @@ public class Mech {
 	public void addVarient(String name){
 		varients.add( new Varient(name, this.getName()));
 	}
-	public boolean removeVarient(String name){
-		if(varients.remove(name)){
-			return true;
+	public void removeVarient(String name){
+		for(Varient var : varients){
+			if(var.getName().equals(name)){
+				if(varients.remove(var));
+			}
 		}
-		else{return false;}
 	}
+		
 	
 	@Override
 	public String toString(){

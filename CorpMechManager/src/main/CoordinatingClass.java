@@ -15,6 +15,7 @@ import java.util.TimerTask;
 import java.util.TreeMap;
 
 import javafx.application.Application;
+import javafx.util.Callback;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -286,6 +287,26 @@ public class CoordinatingClass {
 
 	public void addNewVarient(String name, String varName, String smurfyURL) {
 		mechs.get(name).addVarient(varName, smurfyURL);
+		
+	}
+
+	public ArrayList<Varient> getAllVarients() {
+		Collection<Mech> mechs = getMechs().values();
+		ArrayList<Varient> varients = new ArrayList<>();
+		for(Mech mech : mechs){
+			ArrayList<Varient> buffVarients= mech.getVarients();
+			for(Varient var : buffVarients){
+				varients.add(var);
+			}
+		}
+		return varients;
+	}
+	
+	public void getUsableFormations(ArrayList<Member> currentMembers){
+		ArrayList<Formation> allFormations = new ArrayList<>();
+		for(Formation form : getFormations().values()){
+			allFormations.add(form);
+		}
 		
 	}
 }

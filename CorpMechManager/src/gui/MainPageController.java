@@ -156,6 +156,16 @@ public class MainPageController extends AnchorPane implements Initializable {
 		smurfyURL.setText(varBuff.getSmurfyURL());
 		
 	}
+	
+	@FXML protected void handleAddFormationButton(ActionEvent E) throws Exception{
+		NewInputStage test = new NewInputStage();
+		test.setCoord(application);
+		test.start("4");
+	}
+	
+	@FXML protected void handleRemoveFormationButton(ActionEvent E){
+		allFormations.remove(formationList.getSelectionModel().getSelectedItem());
+	}
 	@FXML protected void handleEditMechsButton(ActionEvent E) throws Exception{
 		NewInputStage test = new NewInputStage();
 		test.setCoord(application);
@@ -178,4 +188,6 @@ public class MainPageController extends AnchorPane implements Initializable {
 		    
 		 }, 0, 5*1000);
 	}
+	
+	
 }

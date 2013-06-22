@@ -43,7 +43,7 @@ public class AddMechPageController  extends AnchorPane implements Initializable{
 		
 	}
 	@FXML protected void handleCreateButtonPress(ActionEvent E) throws JAXBException{
-		if(!allMechs.contains(nameField.getText())){
+		if(!allMechs.contains(coord.getMechs().get(nameField.getText()))){
 			coord.addNewMech(nameField.getText());
 			coord.saveToXmlFile();
 		}

@@ -82,8 +82,8 @@
                     <Label text="Composition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
                     <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
                       <children>
-                        <Button mnemonicParsing="false" text="Add" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" text="Remove" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#handleAddFormationButton" text="Add" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#handleRemoveFormationButton" text="Remove" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                       </children>
                       <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

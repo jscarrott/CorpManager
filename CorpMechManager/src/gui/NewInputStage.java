@@ -44,6 +44,12 @@ public class NewInputStage extends Stage {
 			page.showAndWait();
 			break;
 		}
+		case "4" : {
+			AddFormationPageController mainPage = (AddFormationPageController) replaceSceneContent("AddFormationPage.fxml");
+			mainPage.setApp(coord);
+			page.showAndWait();
+			break;
+		}
 		}
 		
 
