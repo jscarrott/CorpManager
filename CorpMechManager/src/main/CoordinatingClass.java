@@ -15,6 +15,7 @@ import java.util.TimerTask;
 import java.util.TreeMap;
 
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.util.Callback;
 
 import javax.xml.bind.JAXBContext;
@@ -43,6 +44,33 @@ public class CoordinatingClass {
 		lastTimeBuff = buffPathFile.lastModified();
 		pollFile();
 	}
+	
+	public ArrayList<Mech> getFormationMechs(Formation form){
+		ArrayList<String> formVarients = form.getComposition();
+		ArrayList<Varient> varients = getAllVarients();
+		ArrayList<Mech> formMechs = new ArrayList<>();
+		
+		for(String varName : formVarients){
+			for(Varient var : varients){
+				if(varName.equals(var.getMech())){
+					formMechs.add(mechs.get(var.getMech()));
+				}
+			}
+		}
+		return formMechs;
+	}
+	
+	public Group createGroup(ObservableList<Member> currentMembers){
+		ArrayList<Member> cMembers = new ArrayList<>();
+		for(Member member : currentMembers){
+			cMembers.add(member);
+		}
+		Group group = new Group(cMembers, getMechs());
+		return group; 
+	}
+	
+	
+	
 	
 	void pollFile(){
 		Timer timer = new Timer();
@@ -305,16 +333,28 @@ public class CoordinatingClass {
 		return varients;
 	}
 	
-	public void getUsableFormations(ArrayList<Member> currentMembers){
+	public boolean isFormationUsable(Formation form, Group group){
+		form.generateMechCount(getFormationMechs(form));
+		for(MechCount mc : form.getMechCount()){
+			for(MechCount mc2 : group.getTheMechCount()){
+				if(mc.getNameOfMech().equals(mc2.getNameOfMech())){
+					if(mc.getNumberOfMechs() >= mc2.getNumberOfMechs()){
+						return false;
+					}
+				}
+			}
+		}
+		return true;
+	}
+	
+	public ArrayList<Formation> getUsableFormations(Group cGroup){
 		ArrayList<Formation> allFormations = new ArrayList<>();
 //		ArrayList<Mech> allMechs = getAllMechs(currentMembers);
 		
 		for(Formation form : getFormations().values()){
-			allFormations.add(form);
+			if(isFormationUsable(form, cGroup)) allFormations.add(form);
 		}
-		for(Formation form : allFormations){
-			
-		}
+		return allFormations;
 		
 	}
 	

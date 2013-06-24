@@ -41,13 +41,12 @@ public class Group {
 			}
 			else{
 				CounterLoop : for(MechCount mechCounter : theMechCount){
-			boolean match;
+
 			
 				if(mechCounter.getNameOfMech().equals(mech.getName())){
 					int tally = mechCounter.getNumberOfMechs();
 					tally++;
 					mechCounter.setNumberOfMechs(tally);
-					match = true;
 					endCheck = 0;
 					break CounterLoop;
 				}
@@ -102,6 +101,20 @@ public class Group {
 	 */
 	public void setAllMechs(Map<String, Mech> allMechs) {
 		this.allMechs = allMechs;
+	}
+
+	/**
+	 * @return the theMechCount
+	 */
+	public ArrayList<MechCount> getTheMechCount() {
+		return theMechCount;
+	}
+
+	/**
+	 * @param theMechCount the theMechCount to set
+	 */
+	public void setTheMechCount(ArrayList<MechCount> theMechCount) {
+		this.theMechCount = theMechCount;
 	}
 
 }

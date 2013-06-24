@@ -37,6 +37,7 @@ public class MainPageController extends AnchorPane implements Initializable {
 	@FXML javafx.scene.control.ListView<String> currentFormationComposition;
 	@FXML javafx.scene.control.ListView<Mech> mechList;
 	@FXML javafx.scene.control.ListView<Varient> varientList;
+	@FXML ListView<Formation> usableFormationList;
 	@FXML TextArea smurfyURL;
 
 	private CoordinatingClass application;
@@ -46,6 +47,7 @@ public class MainPageController extends AnchorPane implements Initializable {
 	private ObservableList<String> formComposition;
 	private ObservableList<Mech> allMechs;
 	private ObservableList<Varient> currentVarients;
+	private ObservableList<Formation> usableFormations;
 
 	void setApp(CoordinatingClass application1) {
 		this.application = application1;
@@ -61,11 +63,14 @@ public class MainPageController extends AnchorPane implements Initializable {
 
 		});
 		currentMembers = FXCollections.observableArrayList();
+		usableFormations = FXCollections.observableArrayList();
 		currentMembers.addListener(new ListChangeListener<Member>() {
 			
 			@Override
 			public void onChanged(javafx.collections.ListChangeListener.Change<? extends Member> c) {
 				currentMembersList.setItems(currentMembers);
+				usableFormations = FXCollections.observableArrayList(application.getUsableFormations(application.createGroup(currentMembers)));
+				usableFormationList.setItems(usableFormations);
 				
 			}
 		});
@@ -76,6 +81,8 @@ public class MainPageController extends AnchorPane implements Initializable {
 			@Override
 			public void onChanged(javafx.collections.ListChangeListener.Change<? extends Formation> c) {
 				formationList.setItems(allFormations);
+				usableFormations = FXCollections.observableArrayList(application.getUsableFormations(application.createGroup(currentMembers)));
+				usableFormationList.setItems(usableFormations);
 				
 			}
 			
@@ -111,6 +118,7 @@ public class MainPageController extends AnchorPane implements Initializable {
 		if(!currentMembers.contains(allMembersList.getSelectionModel().getSelectedItem())){
 			currentMembers.add(allMembersList.getSelectionModel().getSelectedItem());
 		}
+		
 	}
 
 	@FXML protected void removeMemberFromCurrentButton(ActionEvent E){
