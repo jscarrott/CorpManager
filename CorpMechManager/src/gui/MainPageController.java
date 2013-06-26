@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javax.xml.bind.JAXBException;
+
 import main.CoordinatingClass;
 import main.Formation;
 import main.Mech;
@@ -19,6 +21,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -39,6 +42,9 @@ public class MainPageController extends AnchorPane implements Initializable {
 	@FXML javafx.scene.control.ListView<Varient> varientList;
 	@FXML ListView<Formation> usableFormationList;
 	@FXML TextArea smurfyURL;
+	@FXML ListView<String> usableSelectedComposition;
+	@FXML ListView<String> memberMechList;
+	@FXML ComboBox<Member> memberComboBox;
 
 	private CoordinatingClass application;
 	private ObservableList<Member> allMembers;
@@ -48,6 +54,8 @@ public class MainPageController extends AnchorPane implements Initializable {
 	private ObservableList<Mech> allMechs;
 	private ObservableList<Varient> currentVarients;
 	private ObservableList<Formation> usableFormations;
+	private ObservableList<String> usableSelected;
+	private ObservableList<String> memberMechs;
 
 	void setApp(CoordinatingClass application1) {
 		this.application = application1;
@@ -58,6 +66,7 @@ public class MainPageController extends AnchorPane implements Initializable {
 			@Override
 			public void onChanged(javafx.collections.ListChangeListener.Change<? extends Member> c) {
 				allMembersList.setItems(allMembers);
+				memberComboBox.setItems(allMembers);
 
 			}
 
@@ -116,15 +125,44 @@ public class MainPageController extends AnchorPane implements Initializable {
 	currentVarients = FXCollections.observableArrayList(application.getMechs().get("JR7-F").getVarients());
 	varientList.setItems(currentVarients);
 	
-	
+	usableSelected = FXCollections.observableArrayList();
+//	usableSelected.addListener(new ListChangeListener<String>(){
+//		@Override
+//		public void onChanged(javafx.collections.ListChangeListener.Change<? extends String> c) {
+//			usableSelectedComposition.setItems(usableSelected);
+			
+//		}
+//	});
 //	TODO 	pollLists();
+	
+	memberComboBox.setItems(allMembers);
+	memberComboBox.getSelectionModel().select(0);
+	memberMechs = FXCollections.observableArrayList(memberComboBox.getSelectionModel().getSelectedItem().getMechList());
+	memberMechList.setItems(memberMechs);
 	}
 	
 	@FXML protected void addMemberToCurrentButton(ActionEvent E){
 		if(!currentMembers.contains(allMembersList.getSelectionModel().getSelectedItem())){
 			currentMembers.add(allMembersList.getSelectionModel().getSelectedItem());
+			
 		}
 		
+	}
+	
+	@FXML protected void handleSaveButton(ActionEvent E) throws JAXBException{
+		application.saveToXmlFile();
+	}
+	
+	
+	@FXML protected void handleDeleteMember(ActionEvent E){
+		
+		application.removeMember(allMembersList.getSelectionModel().getSelectedItem().getName());
+		allMembers.remove(allMembersList.getSelectionModel().getSelectedItem());
+	}
+	
+	@FXML protected void memberComboBoxSelection(ActionEvent E){
+		memberMechs = FXCollections.observableArrayList(memberComboBox.getSelectionModel().getSelectedItem().getMechList());
+		memberMechList.setItems(memberMechs);
 	}
 
 	@FXML protected void removeMemberFromCurrentButton(ActionEvent E){
@@ -169,6 +207,12 @@ public class MainPageController extends AnchorPane implements Initializable {
 		Varient varBuff = varientList.getSelectionModel().getSelectedItem();
 		smurfyURL.setText(varBuff.getSmurfyURL());
 		
+	}
+	
+	@FXML protected void usableFormationClickedOn(MouseEvent E){
+		usableSelected = FXCollections.observableArrayList();
+		usableSelected.addAll(usableFormationList.getSelectionModel().getSelectedItem().getComposition());
+		usableSelectedComposition.setItems(usableSelected);
 	}
 	
 	@FXML protected void handleAddFormationButton(ActionEvent E) throws Exception{

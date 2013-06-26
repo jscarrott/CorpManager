@@ -56,7 +56,7 @@
                 <name>Marek Tesla</name>
             </value>
         </entry>
-        <entry>
+		<entry>
             <key>Urbeker</key>
             <value>
                 <mechList>BJ-1X</mechList>
@@ -69,40 +69,10 @@
             </value>
         </entry>
         <entry>
-            <key>aaa</key>
-            <value>
-                <name>aaa</name>
-            </value>
-        </entry>
-        <entry>
             <key>alsohasflame</key>
             <value>
                 <mechList>DRG-FLAME</mechList>
                 <name>alsohasflame</name>
-            </value>
-        </entry>
-        <entry>
-            <key>bbb</key>
-            <value>
-                <name>bbb</name>
-            </value>
-        </entry>
-        <entry>
-            <key>ccc</key>
-            <value>
-                <name>ccc</name>
-            </value>
-        </entry>
-        <entry>
-            <key>ddd</key>
-            <value>
-                <name>ddd</name>
-            </value>
-        </entry>
-        <entry>
-            <key>eee</key>
-            <value>
-                <name>eee</name>
             </value>
         </entry>
         <entry>

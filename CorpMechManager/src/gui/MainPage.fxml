@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -43,7 +44,8 @@
                     <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
                       <children>
                         <Button mnemonicParsing="false" onAction="#addNewMemberButtonPressed" text="Add new member" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" text="Remove" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.margin="$x1" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#handleDeleteMember" text="Remove" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.margin="$x1" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#handleSaveButton" text="Save removed" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                       </children>
                       <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -116,8 +118,8 @@
               <children>
                 <GridPane prefHeight="356.0" prefWidth="556.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                    <ListView fx:id="usableFormationList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <ListView fx:id="usableFormationList" onMouseClicked="#usableFormationClickedOn" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <ListView fx:id="usableSelectedComposition" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     <Label text="Usable Formations" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
                     <Label text="Composition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
                   </children>
@@ -206,6 +208,20 @@
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
                 <GridPane alignment="CENTER" prefHeight="356.0" prefWidth="556.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                    <ComboBox fx:id="memberComboBox" onAction="#memberComboBoxSelection" prefHeight="29.0" prefWidth="161.0" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                      <items>
+                        <FXCollections fx:factory="observableArrayList">
+                          <String fx:value="Item 1" />
+                          <String fx:value="Item 2" />
+                          <String fx:value="Item 3" />
+                        </FXCollections>
+                      </items>
+                    </ComboBox>
+                    <ListView fx:id="memberMechList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Label alignment="CENTER" text="Select Member" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                    <Label text="Mech List" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                  </children>
                   <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
