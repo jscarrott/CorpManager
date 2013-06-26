@@ -52,7 +52,7 @@ public class CoordinatingClass {
 		
 		for(String varName : formVarients){
 			for(Varient var : varients){
-				if(varName.equals(var.getMech())){
+				if(varName.equals(var.getName())){
 					formMechs.add(mechs.get(var.getMech()));
 				}
 			}
@@ -336,15 +336,23 @@ public class CoordinatingClass {
 	public boolean isFormationUsable(Formation form, Group group){
 		form.generateMechCount(getFormationMechs(form));
 		for(MechCount mc : form.getMechCount()){
+			int counter = 0;
 			for(MechCount mc2 : group.getTheMechCount()){
+				counter++;
 				if(mc.getNameOfMech().equals(mc2.getNameOfMech())){
-					if(mc.getNumberOfMechs() >= mc2.getNumberOfMechs()){
+					if(mc.getNumberOfMechs() > mc2.getNumberOfMechs()){
 						return false;
 					}
+					else{
+						
+					}
+				}
+				if(counter == group.getTheMechCount().size()){
+					return true;
 				}
 			}
 		}
-		return true;
+		return false;
 	}
 	
 	public ArrayList<Formation> getUsableFormations(Group cGroup){

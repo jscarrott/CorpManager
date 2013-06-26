@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Group {
@@ -40,25 +41,39 @@ public class Group {
 				endCheck++;
 			}
 			else{
-				CounterLoop : for(MechCount mechCounter : theMechCount){
-
+				ArrayList<MechCount> buffCount = theMechCount;
+				CounterLoop : for(MechCount mechCounter : buffCount){
+				
 			
 				if(mechCounter.getNameOfMech().equals(mech.getName())){
-					int tally = mechCounter.getNumberOfMechs();
-					tally++;
-					mechCounter.setNumberOfMechs(tally);
-					endCheck = 0;
-					break CounterLoop;
+					for(MechCount mechCounter2 : theMechCount){
+						if(mechCounter2.getNameOfMech().equals(mechCounter.getNameOfMech())){
+							int tally = mechCounter2.getNumberOfMechs();
+							tally++;
+							mechCounter2.setNumberOfMechs(tally);
+							endCheck = 0;
+							break CounterLoop;
+						}
+					}
+					
 				}
 				endCheck++;
 				if(endCheck == theMechCount.size()){
 					theMechCount.add(new MechCount(mech.getName()));
+					break CounterLoop;
 				}
 				
 			}
 			}
 			
 //			MechCount buff = new MechCount(mech.getName());
+		}
+		Iterator<MechCount> it = theMechCount.iterator();
+		while(it.hasNext()){
+			MechCount buff = it.next();
+			System.out.println("Group mech count");
+			System.out.println(buff.nameOfMech);
+			System.out.println(buff.numberOfMechs);
 		}
 	}
 	/**

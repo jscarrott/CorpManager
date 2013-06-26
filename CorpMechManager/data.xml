@@ -2,9 +2,83 @@
 <ns2:mappableCoordClass xmlns:ns2="CorpManager">
     <members>
         <entry>
+            <key>Berjj</key>
+            <value>
+                <mechList>RVN-3L</mechList>
+                <mechList>CDA-2A</mechList>
+                <mechList>CDA-X5</mechList>
+                <mechList>BJ-1DC</mechList>
+                <mechList>BJ-1X</mechList>
+                <mechList>CN9-A</mechList>
+                <mechList>CN9-AL</mechList>
+                <mechList>CN9-YLW</mechList>
+                <mechList>HBK-4SP</mechList>
+                <mechList>DRG-FLAME</mechList>
+                <mechList>DRG-1C</mechList>
+                <mechList>DRG-5N</mechList>
+                <mechList>CPLT-A1</mechList>
+                <mechList>CPLT-C1</mechList>
+                <mechList>CPLT-K2</mechList>
+                <mechList>JM6-A</mechList>
+                <mechList>JM6-S</mechList>
+                <mechList>CTF-3D</mechList>
+                <mechList>CTF-2X</mechList>
+                <mechList>AS7-D</mechList>
+                <mechList>AS7-D-DC</mechList>
+                <name>Berjj</name>
+            </value>
+        </entry>
+        <entry>
+            <key>Marek Tesla</key>
+            <value>
+                <mechList>JR7-D</mechList>
+                <mechList>JR7-F</mechList>
+                <mechList>JR7-K</mechList>
+                <mechList>RVN-3L</mechList>
+                <mechList>CDA-2A</mechList>
+                <mechList>CDA-3M</mechList>
+                <mechList>CDA-X5</mechList>
+                <mechList>TBT-7M</mechList>
+                <mechList>TBT-5J</mechList>
+                <mechList>TBT-7K</mechList>
+                <mechList>TBT-3C</mechList>
+                <mechList>CN9-A</mechList>
+                <mechList>CN9-AL</mechList>
+                <mechList>CN9-D</mechList>
+                <mechList>QKD-4G</mechList>
+                <mechList>QKD-5K</mechList>
+                <mechList>DRG-FLAME</mechList>
+                <mechList>DRG-5N</mechList>
+                <mechList>DRG-1C</mechList>
+                <mechList>CTF-3D</mechList>
+                <mechList>CTF-2X</mechList>
+                <mechList>ILYA-MURO</mechList>
+                <name>Marek Tesla</name>
+            </value>
+        </entry>
+        <entry>
+            <key>Urbeker</key>
+            <value>
+                <mechList>BJ-1X</mechList>
+                <mechList>JR7-D</mechList>
+                <mechList>JR7-F</mechList>
+                <mechList>ILYA-MURO</mechList>
+                <mechList>CTF-3D</mechList>
+                <mechList>HBK-4SP</mechList>
+                <name>Urbeker</name>
+            </value>
+        </entry>
+        <entry>
             <key>aaa</key>
             <value>
                 <name>aaa</name>
+            </value>
+        </entry>
+        <entry>
+            <key>alsohasflame</key>
+            <value>
+                <mechList>DRG-FLAME</mechList>
+                <name>alsohasflame</name>
             </value>
         </entry>
         <entry>
@@ -29,6 +103,13 @@
             <key>eee</key>
             <value>
                 <name>eee</name>
+            </value>
+        </entry>
+        <entry>
+            <key>hasFLame</key>
+            <value>
+                <mechList>DRG-FLAME</mechList>
+                <name>hasFLame</name>
             </value>
         </entry>
         <entry>
@@ -285,6 +366,11 @@
             <key>DRG-FLAME</key>
             <value>
                 <name>DRG-FLAME</name>
+                <varients>
+                    <name>boomer</name>
+                    <parentMech>DRG-FLAME</parentMech>
+                    <smurfyURL>empty</smurfyURL>
+                </varients>
             </value>
         </entry>
         <entry>
@@ -381,6 +467,11 @@
             <key>JR7-D</key>
             <value>
                 <name>JR7-D</name>
+                <varients>
+                    <name>blaze</name>
+                    <parentMech>JR7-D</parentMech>
+                    <smurfyURL>empty</smurfyURL>
+                </varients>
             </value>
         </entry>
         <entry>
@@ -443,6 +534,11 @@
             <key>RVN-3L</key>
             <value>
                 <name>RVN-3L</name>
+                <varients>
+                    <name>boom</name>
+                    <parentMech>RVN-3L</parentMech>
+                    <smurfyURL>empty</smurfyURL>
+                </varients>
             </value>
         </entry>
         <entry>
@@ -549,20 +645,12 @@
     </mechs>
     <formations>
         <entry>
-            <key>fillerFormation</key>
+            <key>test123</key>
             <value>
-                <composition>poppy</composition>
-                <composition>wertyuiop</composition>
-                <composition>abbey</composition>
-                <composition>test</composition>
-                <name>fillerFormation</name>
-            </value>
-        </entry>
-        <entry>
-            <key>test formation</key>
-            <value>
-                <composition>bob</composition>
-                <name>test formation</name>
+                <composition>boomer</composition>
+                <composition>boomer</composition>
+                <composition>boomer</composition>
+                <name>test123</name>
             </value>
         </entry>
     </formations>

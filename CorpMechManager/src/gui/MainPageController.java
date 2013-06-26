@@ -81,6 +81,12 @@ public class MainPageController extends AnchorPane implements Initializable {
 			@Override
 			public void onChanged(javafx.collections.ListChangeListener.Change<? extends Formation> c) {
 				formationList.setItems(allFormations);
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				usableFormations = FXCollections.observableArrayList(application.getUsableFormations(application.createGroup(currentMembers)));
 				usableFormationList.setItems(usableFormations);
 				
@@ -111,7 +117,7 @@ public class MainPageController extends AnchorPane implements Initializable {
 	varientList.setItems(currentVarients);
 	
 	
-		pollLists();
+//	TODO 	pollLists();
 	}
 	
 	@FXML protected void addMemberToCurrentButton(ActionEvent E){
